@@ -1,0 +1,8 @@
+[workspace]
+members = [
+    "rust-hello-server",
+    "rust-file-upload-endpoint",
+    "rust-file-compression"
+]
+
+resolver = "2"

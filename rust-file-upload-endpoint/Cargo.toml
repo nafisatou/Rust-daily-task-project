@@ -1,0 +1,16 @@
+[package]
+name = "rust-file-upload-endpoint"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+axum = { version = "0.7", features = ["multipart"] }
+
+tokio = { version = "1", features = ["full"] }
+hyper = { version = "1", features = ["full"] }  # ✅ Add Hyper
+tower = "0.5"  # ✅ Add Tower
+tower-http = { version = "0.5", features = ["cors"] }  # ✅ Add Tower-HTTP
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+uuid = { version = "1", features = ["v4"] }   # ✅ Fixes uuid error
+flate2 = "1.0"  # ✅ Fixes flate2 error (for compression)
