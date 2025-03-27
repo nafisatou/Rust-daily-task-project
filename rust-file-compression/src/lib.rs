@@ -9,6 +9,7 @@ pub fn compress_file(input: &str, output: &str) {
     let mut encoder = GzEncoder::new(output_file, Compression::default());
     let mut reader = BufReader::new(input_file);
     copy(&mut reader, &mut encoder).expect("❌ Compression failed!");
+    
 
     println!("✅ File compressed successfully: {}", output);
 }
