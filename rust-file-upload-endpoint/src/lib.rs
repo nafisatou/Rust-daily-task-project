@@ -10,6 +10,7 @@ use tokio::net::TcpListener;
 
 pub async fn start_server() {
     let app = Router::new()
+
         .route("/upload", post(upload_file))
         .layer(CorsLayer::permissive());
 
@@ -30,6 +31,6 @@ async fn upload_file(mut multipart: Multipart) -> Result<Html<String>, axum::htt
         println!("Received file: {} ({} bytes)", name, data.len());
     }
 
-    println!(" Upload complete!");
+    println!(" Upload complete!");     
     Ok(Html("File uploaded successfully!".to_string()))
 }
