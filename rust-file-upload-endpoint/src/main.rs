@@ -60,7 +60,7 @@ async fn upload_file(
         }
 
         //  Offload file writing as an async task
-        
+
         let task_store_clone = state.clone();
         task::spawn(async move {
             fs::write(&file_path, &data).expect("Failed to write file");
@@ -70,6 +70,7 @@ async fn upload_file(
         });
 
         //  Now, `task_id` is still accessible
+        
         Json(json!({ "task_id": task_id, "status": "Processing" }))
     } else {
         Json(json!({ "error": "No file uploaded" }))
