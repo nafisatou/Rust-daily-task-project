@@ -18,6 +18,7 @@ async fn main() {
     let task_store: TaskStore = Arc::new(Mutex::new(HashMap::new()));
 
     // Ensure the uploads directory exists
+    
     if !fs::metadata(upload_dir).is_ok() {
         fs::create_dir(upload_dir).expect("Failed to create uploads directory");
     }
