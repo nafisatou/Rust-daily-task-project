@@ -52,7 +52,7 @@ async fn upload_file(
 
         let file_path = format!("uploads/{}", file_name);
         let task_id = Uuid::new_v4().to_string();
-        let task_id_clone = task_id.clone(); // ✅ Clone before using in async task
+        let task_id_clone = task_id.clone();    // ✅ Clone before using in async task
 
         {
             let mut store = state.lock().await;
@@ -70,7 +70,7 @@ async fn upload_file(
         });
 
         //  Now, `task_id` is still accessible
-        
+
         Json(json!({ "task_id": task_id, "status": "Processing" }))
     } else {
         Json(json!({ "error": "No file uploaded" }))
